@@ -1,56 +1,101 @@
+/* Root Variables for Light Mode (Default) */
+:root {
+  --bg-color: aliceblue;
+  --card-bg: #ffffff;
+  --text-color: #240303;
+  --header-bg: #240303;
+  --header-text: #ffffff;
+  --btn-bg: #240303;
+  --btn-text: #ffffff;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --card-bg: #240303;
+  --text-color: #f7ecec;
+  --header-bg: #000000;
+  --header-text: #ffffff;
+  --btn-bg: #ffffff;
+  --btn-text: #240303;
+}
+
 body {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    background-color: aliceblue;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s ease;
 }
 
 .movie {
-    justify-items: center;
-    background-color: rgb(36, 3, 3);
-    color:white;
-    background-attachment: fixed;
+  text-align: center;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 40px 20px;
 }
 
-.movie p {
-    line-height: 8px;
-}
-
-p{
-    color:black;
-    font-weight: 130px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+/* Responsive Card Container */
 .moviecon {
-    justify-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  width: 90%; /* Mobile first */
+  max-width: 800px; /* Limits size on desktop */
+  margin: 40px auto;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .moviecon img {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    
-
+  width: 100%; /* Makes images responsive */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
-.moviecon button{
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(36, 3, 3);
-    color:white;
-    border:none;
-    border-radius: 5px;
-    padding:10px 10px;
-    
+/* Theme Toggle Button Style */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  background: var(--header-bg);
+  color: var(--header-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
-
-.moviecon button:hover {
-    background-color: black;
-    cursor:pointer;
+p {
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
+.download-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Responsive Design for Tablets/Desktop */
+@media (min-width: 768px) {
+  .moviecon {
+    width: 60%;
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
